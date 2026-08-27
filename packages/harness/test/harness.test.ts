@@ -93,6 +93,11 @@ it("accepts product learnings", () => {
   expect(report.errors.map((error) => error.code)).not.toContain("unknown_artifact_type");
 });
 
+it("names L as Learning on product and Literature on research", () => {
+  expect(productChain.types.L?.name).toBe("Learning");
+  expect(researchChain.types.L?.name).toBe("Literature");
+});
+
 it("scores and ranks WSJF", () => {
   expect(wsjfScore({ value: 8, time: 5, risk: 2, effort: 4 })).toBe(3.75);
   expect(
